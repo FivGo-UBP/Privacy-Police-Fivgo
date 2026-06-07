@@ -6,17 +6,28 @@
     <title>FivGo Customer - Account Deletion</title>
     <link rel="stylesheet" href="styles.css">
     <style>
+        /* Memaksa kontainer agar tidak terbagi menjadi 2 kolom menu di desktop */
+        .container {
+            max-width: 1200px !important;
+            margin: 0 auto !important;
+            padding: 30px 20px !important;
+            display: block !important;
+        }
+        
         .page-layout {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1.2fr 1fr;
             gap: 40px;
             margin-top: 30px;
         }
-        @media (max-width: 768px) {
+        
+        @media (max-width: 900px) {
             .page-layout {
                 grid-template-columns: 1fr;
+                gap: 30px;
             }
         }
+        
         .info-panel {
             background: var(--bg-card, #ffffff);
             padding: 30px;
@@ -24,22 +35,27 @@
             border: 1px solid rgba(0,0,0,0.05);
             line-height: 1.6;
         }
+        
         .form-panel {
             background: var(--bg-card, #ffffff);
             padding: 30px;
             border-radius: 16px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
             border: 1px solid rgba(0,0,0,0.05);
+            height: fit-content;
         }
+        
         .form-group {
             margin-bottom: 20px;
         }
+        
         .form-group label {
             display: block;
             margin-bottom: 8px;
             font-weight: 600;
             color: #333;
         }
+        
         .form-group input, .form-group textarea {
             width: 100%;
             padding: 12px;
@@ -49,11 +65,13 @@
             box-sizing: border-box;
             background-color: #fafafa;
         }
+        
         .form-group input:focus, .form-group textarea:focus {
             border-color: #ffc800;
             outline: none;
             background-color: #fff;
         }
+        
         .btn-submit {
             background-color: #ffc800;
             color: #111;
@@ -66,19 +84,23 @@
             width: 100%;
             transition: all 0.3s ease;
         }
+        
         .btn-submit:hover {
             background-color: #e5b300;
             transform: translateY(-2px);
         }
+        
         .divider {
             margin: 20px 0;
             border: 0;
             border-top: 1px solid #eee;
         }
+        
         ul {
             padding-left: 20px;
             margin-bottom: 15px;
         }
+        
         li {
             margin-bottom: 6px;
         }
@@ -157,10 +179,7 @@
                     Gunakan formulir ini jika Anda sudah menghapus aplikasi dari HP Anda dan ingin kami menghapus akun Anda secara manual.
                 </p>
 
-                <!-- 
-                  Ganti "support@fivgo.app" di bawah dengan email Anda yang aktif 
-                  agar notifikasi pengajuan masuk langsung ke email Anda.
-                -->
+                <!-- Menggunakan FormSubmit dengan email tujuan fivgoubp@gmail.com -->
                 <form action="https://formsubmit.co/fivgoubp@gmail.com" method="POST">
                     
                     <!-- Pengaturan FormSubmit untuk redirect sukses -->
@@ -209,7 +228,6 @@
         const urlParams = new URLSearchParams(window.location.search);
         if (urlParams.get('status') === 'success') {
             document.getElementById('successNotice').style.display = 'block';
-            // Scroll ke bawah agar notifikasi sukses terlihat
             document.getElementById('successNotice').scrollIntoView({ behavior: 'smooth' });
         }
     </script>
