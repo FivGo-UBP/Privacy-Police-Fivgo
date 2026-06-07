@@ -2,6 +2,7 @@
 const themeToggle = document.getElementById("themeToggle");
 const themeToggleCircle = document.querySelector(".theme-toggle-circle");
 const logoImage = document.querySelector(".logo-icon img");
+const appNameSpan = document.querySelector(".header-logo span");
 const htmlElement = document.documentElement;
 const lightLogo = "assets/logo light.png";
 const darkLogo = "assets/logo dark.png";
@@ -31,8 +32,10 @@ if (savedTheme === "dark") {
   themeToggle.classList.add("active");
   themeToggleCircle.innerHTML = moonIcon;
   logoImage.src = darkLogo;
+  appNameSpan.textContent = "FivGo Driver";
 } else {
   logoImage.src = lightLogo;
+  appNameSpan.textContent = "FivGo";
 }
 
 themeToggle.addEventListener("click", () => {
@@ -42,6 +45,7 @@ themeToggle.addEventListener("click", () => {
   const isDarkMode = document.body.classList.contains("dark-mode");
   themeToggleCircle.innerHTML = isDarkMode ? moonIcon : sunIcon;
   logoImage.src = isDarkMode ? darkLogo : lightLogo;
+  appNameSpan.textContent = isDarkMode ? "FivGo Driver" : "FivGo";
   localStorage.setItem("theme", isDarkMode ? "dark" : "light");
 });
 
