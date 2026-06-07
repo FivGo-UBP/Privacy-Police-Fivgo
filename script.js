@@ -127,21 +127,61 @@ if (backToTopButton) {
 // Download PDF Button
 const downloadBtn = document.getElementById("downloadBtn");
 downloadBtn.addEventListener("click", () => {
-  // Using html2pdf library for PDF generation
-  const element = document.querySelector(".content");
+  const body = document.body;
+  const wasDarkMode = body.classList.contains("dark-mode");
+
+  // Temporarily switch to light mode so text colors are dark & readable in PDF
+  if (wasDarkMode) {
+    body.classList.remove("dark-mode");
+  }
+
+  // Clone the entire page content for PDF (header + highlights + content)
+  const pageWrapper = document.createElement("div");
+  pageWrapper.style.cssText = "background:#ffffff;padding:0;margin:0;";
+
+  const contentEl = document.querySelector(".content");
+  const cloned = contentEl.cloneNode(true);
+  // Force solid colours on the clone so html2canvas captures them correctly
+  cloned.style.cssText = [
+    "background:#ffffff",
+    "border:none",
+    "box-shadow:none",
+    "border-radius:0",
+    "padding:2rem",
+    "color:#111827",
+  ].join(";");
+  pageWrapper.appendChild(cloned);
+
   const opt = {
-    margin: 10,
+    margin: [10, 10, 10, 10],
     filename: "FivGo-Privacy-Policy.pdf",
     image: { type: "jpeg", quality: 0.98 },
-    html2canvas: { scale: 2 },
+    html2canvas: {
+      scale: 2,
+      useCORS: true,
+      backgroundColor: "#ffffff",
+      logging: false,
+    },
     jsPDF: { orientation: "portrait", unit: "mm", format: "a4" },
   };
 
   // Check if html2pdf is available, if not show alert
   if (typeof html2pdf !== "undefined") {
-    html2pdf().set(opt).from(element).save();
+    html2pdf()
+      .set(opt)
+      .from(pageWrapper)
+      .save()
+      .finally(() => {
+        // Restore dark mode after PDF is generated
+        if (wasDarkMode) {
+          body.classList.add("dark-mode");
+        }
+      });
   } else {
     // Fallback: use browser's print functionality
+    if (wasDarkMode) {
+      body.classList.add("dark-mode");
+    }
     window.print();
   }
 });
