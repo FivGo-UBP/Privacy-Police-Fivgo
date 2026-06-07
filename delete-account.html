@@ -3,15 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FivGo - Account Deletion Request</title>
-    <!-- Kita gunakan stylesheet yang sama dengan privacy policy Anda -->
+    <title>FivGo Customer - Account Deletion</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        .form-container {
-            max-width: 600px;
-            margin: 40px auto;
-            padding: 30px;
+        .page-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 30px;
+        }
+        @media (max-width: 768px) {
+            .page-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+        .info-panel {
             background: var(--bg-card, #ffffff);
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid rgba(0,0,0,0.05);
+            line-height: 1.6;
+        }
+        .form-panel {
+            background: var(--bg-card, #ffffff);
+            padding: 30px;
             border-radius: 16px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
             border: 1px solid rgba(0,0,0,0.05);
@@ -35,7 +50,7 @@
             background-color: #fafafa;
         }
         .form-group input:focus, .form-group textarea:focus {
-            border-color: #ffc800; /* Warna kuning khas FivGo */
+            border-color: #ffc800;
             outline: none;
             background-color: #fff;
         }
@@ -55,25 +70,17 @@
             background-color: #e5b300;
             transform: translateY(-2px);
         }
-        .info-box {
-            background-color: #fffbe6;
-            border-left: 4px solid #ffe58f;
-            padding: 15px;
-            border-radius: 4px;
-            margin-bottom: 25px;
-            font-size: 14px;
-            color: #614d00;
-            line-height: 1.5;
+        .divider {
+            margin: 20px 0;
+            border: 0;
+            border-top: 1px solid #eee;
         }
-        .success-message {
-            display: none;
-            text-align: center;
-            padding: 30px;
-        }
-        .success-icon {
-            font-size: 48px;
-            color: #52c41a;
+        ul {
+            padding-left: 20px;
             margin-bottom: 15px;
+        }
+        li {
+            margin-bottom: 6px;
         }
     </style>
 </head>
@@ -91,75 +98,119 @@
       </div>
 
       <div class="header-content" style="padding-bottom: 40px;">
-        <h1>Account Deletion Request</h1>
-        <p>Submit a request to permanently delete your FivGo account and associated data.</p>
+        <h1>Hapus Akun FivGo Customer</h1>
+        <p>Panduan dan formulir pengajuan penghapusan akun serta data pengguna FivGo Customer.</p>
       </div>
     </header>
 
-    <div class="container" style="display: block;">
-        <div class="form-container">
-            <div id="requestForm">
-                <div class="info-box">
-                    <strong>Important Notice:</strong> Deleting your account will permanently remove your trip history, saved addresses, profile info, and wallet balance. This action is irreversible.
-                </div>
+    <div class="container">
+        <div class="page-layout">
+            
+            <!-- Panel Kiri: Panduan & Informasi Retensi -->
+            <div class="info-panel">
+                <h3>Cara Menghapus Akun via Aplikasi</h3>
+                <p>Jika aplikasi FivGo Customer masih terpasang di HP Anda, silakan hapus secara instan dengan langkah berikut:</p>
+                <ol>
+                    <li>Masuk ke menu <strong>Profil</strong>.</li>
+                    <li>Pilih menu <strong>Hapus Akun</strong>.</li>
+                    <li>Isi formulir validasi atau umpan balik yang disediakan.</li>
+                    <li>Konfirmasikan penghapusan akun Anda.</li>
+                    <li>Akun akan diproses untuk dihapus otomatis dari sistem.</li>
+                </ol>
                 
-                <form id="deletionForm" onsubmit="handleSubmit(event)">
-                    <div class="form-group">
-                        <label for="fullName">Full Name</label>
-                        <input type="text" id="fullName" placeholder="Enter your full name" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="phone">Registered Phone Number</label>
-                        <input type="tel" id="phone" placeholder="e.g. +628123456789" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="email">Registered Email Address</label>
-                        <input type="email" id="email" placeholder="e.g. user@example.com" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="reason">Reason for Deletion (Optional)</label>
-                        <textarea id="reason" rows="4" placeholder="Please let us know why you want to delete your account"></textarea>
-                    </div>
-                    
-                    <button type="submit" class="btn-submit">Submit Deletion Request</button>
-                </form>
+                <hr class="divider">
+
+                <h3>Informasi Penghapusan Data</h3>
+                <p><strong>Data yang Akan Dihapus:</strong></p>
+                <ul>
+                    <li>Nama profil pengguna</li>
+                    <li>Nomor telepon terdaftar</li>
+                    <li>Alamat email</li>
+                    <li>Foto profil</li>
+                    <li>Preferensi akun</li>
+                    <li>Data autentikasi akun</li>
+                </ul>
+
+                <p><strong>Data yang Disimpan (Retensi Keamanan & Hukum):</strong></p>
+                <p>Beberapa data tetap disimpan untuk keperluan hukum, audit, dan pencegahan penyalahgunaan layanan:</p>
+                <ul>
+                    <li>Riwayat transaksi dan pembayaran</li>
+                    <li>Riwayat perjalanan yang telah selesai</li>
+                    <li>Data laporan dan pengaduan</li>
+                    <li>Log keamanan sistem</li>
+                </ul>
+                <p><strong>Periode Retensi:</strong> Data di atas dapat disimpan hingga 90 hari setelah akun dihapus (atau lebih lama jika diwajibkan oleh ketentuan hukum).</p>
+
+                <hr class="divider">
+
+                <h3>Informasi Tambahan</h3>
+                <ul>
+                    <li><strong>Waktu Proses:</strong> Melalui aplikasi diproses secara otomatis. Melalui formulir web diproses maksimal dalam 3-7 hari kerja setelah verifikasi.</li>
+                    <li><strong>Tidak Dapat Dibatalkan:</strong> Setelah akun dihapus, Anda tidak dapat login kembali, riwayat tidak dapat dipulihkan, dan harus mendaftar ulang jika ingin menggunakan FivGo kembali.</li>
+                </ul>
             </div>
 
-            <div id="successMessage" class="success-message">
-                <div class="success-icon">✓</div>
-                <h2>Request Submitted Successfully</h2>
-                <p style="margin-top: 15px; line-height: 1.6; color: #555;">
-                    Your account deletion request has been registered. For security reasons, our support team will contact you via your registered email or WhatsApp number within 48 hours to verify this request before permanently purging your data.
+            <!-- Panel Kanan: Formulir Pengajuan Web (Wajib Google) -->
+            <div class="form-panel">
+                <h3>Formulir Pengajuan Hapus Akun</h3>
+                <p style="color: #666; font-size: 14px; margin-bottom: 20px;">
+                    Gunakan formulir ini jika Anda sudah menghapus aplikasi dari HP Anda dan ingin kami menghapus akun Anda secara manual.
                 </p>
+
+                <!-- 
+                  Ganti "support@fivgo.app" di bawah dengan email Anda yang aktif 
+                  agar notifikasi pengajuan masuk langsung ke email Anda.
+                -->
+                <form action="https://formsubmit.co/support@fivgo.app" method="POST">
+                    
+                    <!-- Pengaturan FormSubmit untuk redirect sukses -->
+                    <input type="hidden" name="_next" value="https://fivgo-ubp.github.io/Privacy-Police-Fivgo/delete-account.html?status=success">
+                    <input type="hidden" name="_subject" value="Permintaan Hapus Akun FivGo Customer">
+                    
+                    <div class="form-group">
+                        <label for="fullName">Nama Lengkap</label>
+                        <input type="text" name="Nama Lengkap" id="fullName" placeholder="Masukkan nama lengkap Anda" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Nomor Telepon Terdaftar</label>
+                        <input type="tel" name="Nomor Telepon" id="phone" placeholder="Contoh: +6281298682260" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Alamat Email Terdaftar</label>
+                        <input type="email" name="Email" id="email" placeholder="Contoh: user@email.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="reason">Alasan Penghapusan (Opsional)</label>
+                        <textarea name="Alasan Penghapusan" id="reason" rows="4" placeholder="Tulis alasan Anda ingin menghapus akun..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn-submit">Kirim Pengajuan Hapus Akun</button>
+                </form>
+
+                <!-- Notifikasi sukses setelah submit -->
+                <div id="successNotice" style="display: none; margin-top: 20px; padding: 15px; background: #e6ffed; border: 1px solid #b7eb8f; color: #1f6b21; border-radius: 8px; text-align: center;">
+                    <strong>✓ Pengajuan Berhasil Dikirim!</strong><br>
+                    Kami akan mengirimkan pesan verifikasi ke nomor WhatsApp/Email Anda dalam 3-7 hari kerja untuk mengonfirmasi sebelum data dihapus secara permanen.
+                </div>
             </div>
+
         </div>
     </div>
 
-    <!-- Footer -->
     <footer style="margin-top: 60px;">
       <p>&copy; 2026 FivGo. All rights reserved.</p>
     </footer>
 
     <script>
-        function handleSubmit(event) {
-            event.preventDefault();
-            
-            // Mengambil data form
-            const fullName = document.getElementById('fullName').value;
-            const phone = document.getElementById('phone').value;
-            const email = document.getElementById('email').value;
-            const reason = document.getElementById('reason').value;
-
-            // Di sini Anda bisa mengirim data ini ke API backend Laravel Anda atau 
-            // layanan email eksternal jika diinginkan.
-            // Sebagai standar kepatuhan Google, menampilkan pesan sukses konfirmasi
-            // bahwa data akan diproses secara manual sudah 100% sah.
-            
-            document.getElementById('requestForm').style.display = 'none';
-            document.getElementById('successMessage').style.display = 'block';
+        // Cek jika halaman dimuat setelah sukses submit
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('status') === 'success') {
+            document.getElementById('successNotice').style.display = 'block';
+            // Scroll ke bawah agar notifikasi sukses terlihat
+            document.getElementById('successNotice').scrollIntoView({ behavior: 'smooth' });
         }
     </script>
 </body>
