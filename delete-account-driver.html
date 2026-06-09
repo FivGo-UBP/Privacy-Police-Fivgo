@@ -6,6 +6,7 @@
     <title>Hapus Akun FivGo Driver - Panduan & Pengajuan</title>
     <link rel="stylesheet" href="styles.css">
     <style>
+        /* Memaksa kontainer agar tidak terbagi menjadi 2 kolom menu di desktop */
         .container {
             max-width: 1200px !important;
             margin: 0 auto !important;
@@ -90,29 +91,18 @@
         }
         
         .divider {
-            margin: 25px 0;
+            margin: 20px 0;
             border: 0;
             border-top: 1px solid #eee;
         }
         
-        ul, ol {
+        ul {
             padding-left: 20px;
             margin-bottom: 15px;
         }
         
         li {
-            margin-bottom: 8px;
-        }
-
-        .role-badge-driver {
-            background-color: #f6ffed;
-            color: #52c41a;
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 13px;
-            font-weight: bold;
-            display: inline-block;
-            margin-bottom: 5px;
+            margin-bottom: 6px;
         }
     </style>
 </head>
@@ -131,7 +121,7 @@
 
       <div class="header-content" style="padding-bottom: 40px;">
         <h1>Hapus Akun FivGo Driver</h1>
-        <p>Panduan dan pengajuan penghapusan akun serta data pengguna FivGo Driver.</p>
+        <p>Panduan dan formulir pengajuan penghapusan akun serta data pengguna FivGo Driver.</p>
       </div>
     </header>
 
@@ -140,13 +130,9 @@
             
             <!-- Panel Kiri: Panduan & Informasi Retensi -->
             <div class="info-panel">
-                <h3>Panduan Penghapusan Akun</h3>
-                
-                <div style="margin-top: 15px;">
-                    <span class="role-badge-driver">FivGo Driver</span>
-                    <p>FivGo Driver tidak menyediakan fitur penghapusan akun secara langsung di dalam aplikasi.</p>
-                    <p>Jika Anda ingin mengajukan penghapusan akun driver, silakan gunakan <strong>Formulir Pengajuan</strong> di sebelah kanan halaman ini atau menghubungi Customer Service FivGo melalui saluran resmi yang tersedia.</p>
-                </div>
+                <h3>Cara Menghapus Akun Driver</h3>
+                <p>FivGo Driver tidak menyediakan fitur penghapusan akun secara langsung melalui aplikasi.</p>
+                <p>Jika Anda ingin menghapus akun driver, silakan gunakan <strong>Formulir Pengajuan Hapus Akun Driver</strong> di sebelah kanan halaman ini atau hubungi Customer Service FivGo melalui saluran resmi yang tersedia.</p>
                 
                 <hr class="divider">
 
@@ -169,36 +155,35 @@
                     <li>Data laporan, pengaduan, dan penyelesaian sengketa</li>
                     <li>Log keamanan sistem</li>
                 </ul>
-                <p><strong>Periode Retensi:</strong> Data retensi dapat disimpan hingga 90 hari setelah akun dinonaktifkan/dihapus (atau lebih lama jika diwajibkan oleh ketentuan hukum).</p>
+                <p><strong>Periode Retensi:</strong> Data retensi dapat disimpan hingga 90 hari setelah akun dihapus (atau lebih lama jika diwajibkan oleh ketentuan hukum).</p>
 
                 <hr class="divider">
 
                 <h3>Informasi Tambahan</h3>
                 <ul>
-                    <li><strong>Waktu Proses:</strong> Permintaan penghapusan akun driver diproses maksimal dalam waktu 3–7 hari kerja setelah proses verifikasi selesai.</li>
-                    <li><strong>Tidak Dapat Dibatalkan:</strong> Setelah akun dihapus, Anda tidak dapat masuk kembali ke aplikasi driver, riwayat kinerja dan dompet tidak dapat dipulihkan, dan Anda harus didaftarkan ulang oleh admin jika ingin bermitra kembali.</li>
+                    <li><strong>Waktu Proses:</strong> Permintaan pengajuan melalui formulir web ini akan diproses maksimal dalam waktu 3–7 hari kerja setelah proses verifikasi selesai.</li>
+                    <li><strong>Tidak Dapat Dibatalkan:</strong> Setelah akun driver dihapus, Anda tidak dapat login kembali ke aplikasi, riwayat performa/dompet tidak dapat dipulihkan, dan Anda harus didaftarkan ulang oleh admin jika ingin bermitra kembali.</li>
                 </ul>
             </div>
 
-            <!-- Panel Kanan: Formulir Pengajuan Web -->
+            <!-- Panel Kanan: Formulir Pengajuan Web (Wajib Google) -->
             <div class="form-panel">
                 <h3>Formulir Pengajuan Hapus Akun Driver</h3>
                 <p style="color: #666; font-size: 14px; margin-bottom: 20px;">
-                    Silakan isi data di bawah ini untuk mengajukan permintaan penghapusan akun Driver Anda.
+                    Silakan isi data di bawah ini untuk mengajukan permintaan penghapusan akun Driver Anda secara manual.
                 </p>
 
-                <!-- FormSubmit mengirimkan data ke email fivgoubp@gmail.com -->
+                <!-- Menggunakan FormSubmit dengan email tujuan fivgoubp@gmail.com -->
                 <form action="https://formsubmit.co/fivgoubp@gmail.com" method="POST">
                     
+                    <!-- Pengaturan FormSubmit untuk redirect sukses -->
                     <input type="hidden" name="_next" value="https://fivgo-ubp.github.io/Privacy-Police-Fivgo/delete-account-driver.html?status=success">
                     <input type="hidden" name="_subject" value="Permintaan Hapus Akun FivGo Driver">
-                    
-                    <!-- Menyertakan peran secara tersembunyi -->
                     <input type="hidden" name="Jenis Akun" value="Driver">
-
+                    
                     <div class="form-group">
                         <label for="fullName">Nama Lengkap</label>
-                        <input type="text" name="Nama Lengkap" id="fullName" placeholder="Masukkan nama lengkap driver" required>
+                        <input type="text" name="Nama Lengkap" id="fullName" placeholder="Masukkan nama lengkap Anda" required>
                     </div>
                     
                     <div class="form-group">
@@ -207,13 +192,13 @@
                     </div>
                     
                     <div class="form-group">
-                        <label for="email">Alamat Email (Opsional)</label>
+                        <label for="email">Alamat Email Terdaftar (Opsional)</label>
                         <input type="email" name="Email" id="email" placeholder="Contoh: driver@email.com">
                     </div>
                     
                     <div class="form-group">
                         <label for="reason">Alasan Penghapusan (Opsional)</label>
-                        <textarea name="Alasan Penghapusan" id="reason" rows="4" placeholder="Tulis alasan ingin menghapus akun driver..."></textarea>
+                        <textarea name="Alasan Penghapusan" id="reason" rows="4" placeholder="Tulis alasan Anda ingin menghapus akun driver..."></textarea>
                     </div>
                     
                     <button type="submit" class="btn-submit">Kirim Pengajuan Hapus Akun Driver</button>
@@ -234,6 +219,7 @@
     </footer>
 
     <script>
+        // Cek jika halaman dimuat setelah sukses submit
         const urlParams = new URLSearchParams(window.location.search);
         if (urlParams.get('status') === 'success') {
             document.getElementById('successNotice').style.display = 'block';
