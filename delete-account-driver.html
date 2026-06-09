@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FivGo Driver - Penghapusan Akun Driver</title>
-    <!-- Memuat CSS langsung dari repositori GitHub Pages agar tampilan rapi -->
+    <!-- Memuat CSS langsung secara online dari GitHub Pages -->
     <link rel="stylesheet" href="https://fivgo-ubp.github.io/Privacy-Police-Fivgo/styles.css">
     <style>
         /* Memaksa kontainer agar tidak terbagi menjadi 2 kolom menu di desktop */
@@ -105,6 +105,14 @@
         li {
             margin-bottom: 6px;
         }
+
+        /* Styling khusus agar logo driver bulat rapi */
+        .logo-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
     </style>
 </head>
 <body>
@@ -113,9 +121,9 @@
     <header style="background: linear-gradient(135deg, #f97316 0%, #ea580c 50%, #c2410c 100%) !important;">
       <div class="header-container">
         <div class="header-logo">
-          <div class="logo-icon" aria-hidden="true">
-            <!-- Memuat logo Driver langsung dari URL GitHub Pages -->
-            <img src="https://fivgo-ubp.github.io/Privacy-Police-Fivgo/assets/logo-fivgo-driver.png" alt="FivGo Driver Logo" />
+          <div class="logo-icon" aria-hidden="true" style="background: #ffffff; padding: 2px;">
+            <!-- Memuat logo Driver online (logo dark.png) -->
+            <img src="https://fivgo-ubp.github.io/Privacy-Police-Fivgo/assets/logo%20dark.png" alt="FivGo Driver Logo" />
           </div>
           <span>FivGo Driver</span>
         </div>
@@ -181,7 +189,7 @@
                 <!-- Menggunakan FormSubmit dengan email tujuan fivgoubp@gmail.com -->
                 <form action="https://formsubmit.co/fivgoubp@gmail.com" method="POST">
                     
-                    <!-- Pengaturan FormSubmit untuk redirect sukses ke fivgo.my.id -->
+                    <!-- Redirect sukses kembali ke domain cPanel Anda -->
                     <input type="hidden" name="_next" value="https://fivgo.my.id/delete-account-driver.html?status=success">
                     <input type="hidden" name="_subject" value="Permintaan Hapus Akun Driver FivGo">
                     
